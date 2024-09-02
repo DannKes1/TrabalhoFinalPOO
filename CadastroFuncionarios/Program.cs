@@ -67,7 +67,9 @@ namespace CadastroFuncionarios
                     break;
 
                 case "05":
+                    Console.WriteLine();
                     Console.WriteLine("Você saiu da aplicação! ");
+                    Console.ReadLine();
                     return false;
                     break;
 
@@ -150,6 +152,7 @@ namespace CadastroFuncionarios
                 Console.WriteLine("Digite o ID que deseja deletar do banco de dados: ");
                 var idfunc = Convert.ToInt32(Console.ReadLine());
 
+
                 if (idfunc == null)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -179,30 +182,22 @@ namespace CadastroFuncionarios
                         Console.ReadKey();
                         Opcao03();
                         break;
-
-              
-
-                        default:
-                        Console.WriteLine();
-                        Console.ForegroundColor= ConsoleColor.DarkRed;
-                        Console.WriteLine("Você digitou algo errado, tente novamente");
-                        Console.ResetColor();
-                        Console.ReadKey();
-                        Opcao03();
-                        break;
                 }
 
-             
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Erro: " + ex.Message);
+                Console.WriteLine();
+                Console.ReadKey();
                 Console.ResetColor();
+                Opcao03();  
             }
             Console.WriteLine();
-            Console.ForegroundColor= ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Digite qualquer tecla para retornar ao menu...");
             Console.ResetColor();
             Console.ReadKey();
@@ -226,7 +221,7 @@ namespace CadastroFuncionarios
                 if (verificacao == null)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("Nenhum funcionário encontrado com o ID fornecido.");
+                    Console.WriteLine("Nenhum funcionário encontrado com o ID fornecido. Por gentileza, Tente novamete!");
                     Console.ReadKey();
                     Console.ResetColor();
                     return;
@@ -260,7 +255,7 @@ namespace CadastroFuncionarios
                     default:
                         Console.WriteLine("Opção inválida, tente novamente. ");
                         Console.ReadLine();
-                        break; 
+                        break;
                 }
                 f1.Update(verificacao);
 
@@ -272,7 +267,7 @@ namespace CadastroFuncionarios
                 Console.WriteLine("Erro: " + ex.Message);
             }
             Console.WriteLine();
-            Console.ForegroundColor= ConsoleColor.DarkRed;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Digite qualquer tecla para retornar ao menu...");
             Console.ResetColor();
 
