@@ -18,12 +18,20 @@ namespace TrabalhoFinalFORMS
         {
 
         }
-
+        private void LimparCampos()
+        {
+            txtNome.Clear();
+            txtCpf.Clear();
+            txtIdAtualizar.Clear();
+            txtNomeAtualizar.Clear();
+            txtCPFAtualizar.Clear();
+            txtDeletar.Clear();
+        }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
-              
+
 
                 if (string.IsNullOrWhiteSpace(txtNome.Text))
                 {
@@ -47,8 +55,8 @@ namespace TrabalhoFinalFORMS
 
                 MessageBox.Show("Funcionário cadastrado com sucesso!");
 
-                txtNome.Clear();
-                txtCpf.Clear();
+                LimparCampos();
+
             }
             catch (Exception ex)
             {
@@ -93,7 +101,7 @@ namespace TrabalhoFinalFORMS
         {
             try
             {
-                if (int.TryParse(txtIdDeletar.Text.Trim(), out int idFuncionario))
+                if (int.TryParse(txtDeletar.Text.Trim(), out int idFuncionario))
                 {
                     var funcionarioExistente = funcionarioDAO.List().FirstOrDefault(f => f.IdFuncionario == idFuncionario);
 
@@ -107,12 +115,14 @@ namespace TrabalhoFinalFORMS
                             f1.Delete(funcionarioExistente);
 
                             MessageBox.Show("Funcionário deletado com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            txtIdDeletar.Clear();
+                            LimparCampos();
+
                         }
                         else if (confirmarResultado == DialogResult.No)
                         {
                             MessageBox.Show("Operação cancelada", "Cancelado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            txtIdDeletar.Clear();
+                            LimparCampos();
+
                         }
                     }
                     else
@@ -124,6 +134,16 @@ namespace TrabalhoFinalFORMS
                 {
                     MessageBox.Show("Por gentileza, insira um ID válido", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}", "Exceção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                List<Funcionario> listafuncionarios = funcionarioDAO.List();
+                dgvDeletar.DataSource = listafuncionarios;
             }
             catch (Exception ex)
             {
@@ -153,8 +173,8 @@ namespace TrabalhoFinalFORMS
                     else
                     {
                         MessageBox.Show("Nenhum funcionário encontrado com o ID fornecido.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtNomeAtualizar.Clear();
-                        txtCPFAtualizar.Clear();
+                        LimparCampos();
+
                     }
                 }
                 else
@@ -190,9 +210,8 @@ namespace TrabalhoFinalFORMS
 
                     MessageBox.Show("Funcionário atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    txtIdAtualizar.Clear();
-                    txtNomeAtualizar.Clear();
-                    txtCPFAtualizar.Clear();
+                    LimparCampos();
+
                 }
                 else
                 {
@@ -208,6 +227,24 @@ namespace TrabalhoFinalFORMS
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAtualizarDeletar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Funcionario> listafuncionarios = funcionarioDAO.List();
+                dgvDeletar.DataSource = listafuncionarios;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}", "Exceção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

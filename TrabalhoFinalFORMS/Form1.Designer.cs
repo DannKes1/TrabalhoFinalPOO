@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             CadastrarFunc = new TabControl();
             tabPage1 = new TabPage();
             btnCadastrar = new Button();
@@ -44,8 +47,10 @@
             btnAtualizarLista = new Button();
             dgvFuncionarios = new DataGridView();
             tabPage3 = new TabPage();
+            btnAtualizarDeletar = new Button();
+            dgvDeletar = new DataGridView();
             btnDeletar = new Button();
-            txtIdDeletar = new TextBox();
+            txtDeletar = new TextBox();
             label6 = new Label();
             label5 = new Label();
             tabPage4 = new TabPage();
@@ -63,6 +68,7 @@
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvFuncionarios).BeginInit();
             tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDeletar).BeginInit();
             tabPage4.SuspendLayout();
             SuspendLayout();
             // 
@@ -197,28 +203,28 @@
             dgvFuncionarios.AllowUserToOrderColumns = true;
             dgvFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFuncionarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvFuncionarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvFuncionarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgvFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvFuncionarios.Location = new Point(3, 48);
             dgvFuncionarios.Name = "dgvFuncionarios";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvFuncionarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dgvFuncionarios.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = SystemColors.Control;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dgvFuncionarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dgvFuncionarios.RowsDefaultCellStyle = dataGridViewCellStyle9;
             dgvFuncionarios.RowTemplate.Height = 25;
             dgvFuncionarios.Size = new Size(968, 391);
             dgvFuncionarios.TabIndex = 0;
@@ -226,8 +232,10 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(btnAtualizarDeletar);
+            tabPage3.Controls.Add(dgvDeletar);
             tabPage3.Controls.Add(btnDeletar);
-            tabPage3.Controls.Add(txtIdDeletar);
+            tabPage3.Controls.Add(txtDeletar);
             tabPage3.Controls.Add(label6);
             tabPage3.Controls.Add(label5);
             tabPage3.Location = new Point(4, 24);
@@ -239,10 +247,53 @@
             tabPage3.UseVisualStyleBackColor = true;
             tabPage3.Click += tabPage3_Click;
             // 
+            // btnAtualizarDeletar
+            // 
+            btnAtualizarDeletar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAtualizarDeletar.Location = new Point(408, 337);
+            btnAtualizarDeletar.Name = "btnAtualizarDeletar";
+            btnAtualizarDeletar.Size = new Size(94, 39);
+            btnAtualizarDeletar.TabIndex = 6;
+            btnAtualizarDeletar.Text = "Listar";
+            btnAtualizarDeletar.UseVisualStyleBackColor = true;
+            btnAtualizarDeletar.Click += btnAtualizarDeletar_Click;
+            // 
+            // dgvDeletar
+            // 
+            dgvDeletar.AllowUserToOrderColumns = true;
+            dgvDeletar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDeletar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = SystemColors.Control;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgvDeletar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dgvDeletar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDeletar.Location = new Point(104, 49);
+            dgvDeletar.Name = "dgvDeletar";
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = SystemColors.Control;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            dgvDeletar.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dgvDeletar.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dgvDeletar.RowTemplate.Height = 25;
+            dgvDeletar.Size = new Size(752, 271);
+            dgvDeletar.TabIndex = 5;
+            dgvDeletar.CellContentClick += dataGridView1_CellContentClick;
+            // 
             // btnDeletar
             // 
             btnDeletar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDeletar.Location = new Point(419, 240);
+            btnDeletar.Location = new Point(408, 461);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(94, 38);
             btnDeletar.TabIndex = 4;
@@ -250,19 +301,19 @@
             btnDeletar.UseVisualStyleBackColor = true;
             btnDeletar.Click += btnDeletar_Click;
             // 
-            // txtIdDeletar
+            // txtDeletar
             // 
-            txtIdDeletar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtIdDeletar.Location = new Point(381, 172);
-            txtIdDeletar.Name = "txtIdDeletar";
-            txtIdDeletar.Size = new Size(175, 33);
-            txtIdDeletar.TabIndex = 3;
+            txtDeletar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDeletar.Location = new Point(508, 414);
+            txtDeletar.Name = "txtDeletar";
+            txtDeletar.Size = new Size(175, 33);
+            txtDeletar.TabIndex = 3;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(337, 139);
+            label6.Location = new Point(243, 413);
             label6.Name = "label6";
             label6.Size = new Size(259, 30);
             label6.TabIndex = 2;
@@ -402,6 +453,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvFuncionarios).EndInit();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDeletar).EndInit();
             tabPage4.ResumeLayout(false);
             tabPage4.PerformLayout();
             ResumeLayout(false);
@@ -425,7 +477,7 @@
         private Label label4;
         private Label label5;
         private Button btnDeletar;
-        private TextBox txtIdDeletar;
+        private TextBox txtDeletar;
         private Label label6;
         private Button btnAtualizar;
         private TextBox txtCPFAtualizar;
@@ -436,5 +488,7 @@
         private TextBox txtIdAtualizar;
         private Label label8;
         private Label label7;
+        private DataGridView dgvDeletar;
+        private Button btnAtualizarDeletar;
     }
 }
